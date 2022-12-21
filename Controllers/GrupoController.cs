@@ -15,7 +15,7 @@ namespace Desafio_itera.Controllers
     [ApiController]
     public class GrupoController : ControllerBase
     {
-        // GET <GrupoController>/5
+        // GET <GrupoController>/_id
         [HttpGet("{_id}")]
         [Authorize]
         public IActionResult Get(string _id)
@@ -69,7 +69,7 @@ namespace Desafio_itera.Controllers
             }
         }
 
-        // GET <GrupoController>/custos/5
+        // GET <GrupoController>/custos/{_id}
         [HttpGet("custos/{_id}")]
         [Authorize]
         public IActionResult GetCustos(string _id)
@@ -146,7 +146,7 @@ namespace Desafio_itera.Controllers
             }
         }
 
-        // PUT <GrupoController>/5
+        // PUT <GrupoController>/{_id}?id_empresa={id_empresa}
         [HttpPut("{_id}")]
         [Authorize]
         public IActionResult Put(string _id, string id_empresa)

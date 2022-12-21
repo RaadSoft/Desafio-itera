@@ -16,7 +16,7 @@ namespace Desafio_itera.Controllers
     public class EmpresaController : ControllerBase
     {
 
-        // GET <EmpresaController>/5
+        // GET <EmpresaController>/_id
         [HttpGet("{_id}")]
         [Authorize]
         public IActionResult Get(string _id)
@@ -120,7 +120,7 @@ namespace Desafio_itera.Controllers
             }
         }
 
-        // DELETE /<EmpresaController>/5
+        // DELETE /<EmpresaController>/_id
         [HttpDelete("{_id}")]
         [Authorize]
         public IActionResult Delete(string _id)
