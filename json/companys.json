@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1A2",
+    "status": "ATIVO",
+    "date_ingestion": "2022-08-25 08:52",
+    "last_update": "2022-08-25 08:52",
+    "custos": [
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_1",
+        "last_update": "2022-08-25 08:52",
+        "valor": 276.0
+      },
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_2",
+        "last_update": "2022-08-25 08:52",
+        "valor": 583.5
+      },
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_3",
+        "last_update": "2022-08-25 08:52",
+        "valor": 427.5
+      },
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_4",
+        "last_update": "2022-08-25 08:52",
+        "valor": 297.0
+      }
+    ]
+  },
+  {
+    "id": "2A2",
+    "status": "ATIVO",
+    "date_ingestion": "2022-08-25 08:52",
+    "last_update": "2022-08-25 08:52",
+    "custos": [
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_1",
+        "last_update": "2022-08-25 08:52",
+        "valor": 76.0
+      },
+      {
+        "ano": 2018,
+        "id_type": "CUSTOS_2",
+        "last_update": "2022-08-25 08:52",
+        "valor": 800.5
+      }
+    ]
+  },
+  {
+    "id": "3A3",
+    "status": "INATIVO",
+    "date_ingestion": "2022-08-25 08:52",
+    "last_update": "2022-08-25 08:52",
+    "custos": [
+      {
+        "ano": 2022,
+        "id_type": "CUSTOS_1",
+        "last_update": "2022-08-25 08:52",
+        "valor": 200.0
+      },
+      {
+        "ano": 2019,
+        "id_type": "CUSTOS_1",
+        "last_update": "2022-08-25 08:52",
+        "valor": 200.0
+      }
+    ]
+  }
+]
