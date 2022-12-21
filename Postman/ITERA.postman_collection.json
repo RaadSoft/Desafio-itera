@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "011ae074-2a0a-48d6-bc7c-dec1d5482e9d",
+		"name": "ITERA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11604887"
+	},
+	"item": [
+		{
+			"name": "Empresas",
+			"item": [
+				{
+					"name": "empresa/custos/{id_empresa}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"ano\": 2019,\r\n    \"id_type\": \"CUSTOS_1\",\r\n    \"valor\": 100.0\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/empresa/custos/1A3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresa",
+								"custos",
+								"1A3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresa/{_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/empresa/3A3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresa",
+								"3A3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresa/{_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"INATIVO\",\r\n    \"date_ingestion\": \"2022-08-25 08:52\",\r\n    \"last_update\": \"2022-08-25 08:52\",\r\n    \"custos\": [\r\n      {\r\n        \"ano\": 2022,\r\n        \"id_type\": \"CUSTOS_1\",\r\n        \"last_update\": \"2022-08-25 08:52\",\r\n        \"valor\": 100.0\r\n      }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/empresa/3A3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresa",
+								"3A3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1A3\",\r\n    \"status\": \"ATIVO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/empresa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Grupos",
+			"item": [
+				{
+					"name": "grupo/{_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/grupo/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"grupo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupo?date='YYYY-MM-DD'",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/grupo?date=2022-12-21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"grupo"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2022-12-21"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupo/custos/{_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/grupo/custos/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"grupo",
+								"custos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"id\":\"3\", \r\n    \"nome\": \"A1\", \r\n    \"category\": \"A\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/grupo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"grupo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupo/{_id}?id_empresa={id_empresa}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/grupo/3?id_empresa=3A3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"grupo",
+								"3"
+							],
+							"query": [
+								{
+									"key": "id_empresa",
+									"value": "3A3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwibmJmIjoxNjcxNjUyOTI2LCJleHAiOjE2NzE2NjAxMjYsImlhdCI6MTY3MTY1MjkyNn0.1hBXMCMIH77DDefnWKLMl1qo6oHaYpD8NX6ZsoM3Ey4",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://localhost:5000",
+			"type": "string"
+		}
+	]
+}
