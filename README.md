@@ -17,7 +17,7 @@ git clone https://github.com/RaadSoft/Desafio-itera.git
 - Arquivos-> Abrir -> Projeto/Solução -> Escolher o arquivo Desafio_ITERA.sln
 - Clicar em IIS Express-executar
 
-# Exceutar command
+# Executar command
 - Entrar na pasta do repositorio
 - Executar ```dotnet run``` 
 *OBS. Verificar antes se o SDK esta instalado corretamente*
