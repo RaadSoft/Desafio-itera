@@ -1,5 +1,6 @@
 ﻿using Desafio_itera.Models;
 using Desafio_ITERA.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Desafio_itera.Controllers
 
         // GET <EmpresaController>/5
         [HttpGet("{_id}")]
+        [Authorize]
         public IActionResult Get(string _id)
         {
             try
@@ -37,6 +39,7 @@ namespace Desafio_itera.Controllers
 
         // POST <EmpresaController>
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody] Empresa empresa)
         {
             try
@@ -72,6 +75,7 @@ namespace Desafio_itera.Controllers
 
         // PUT /<EmpresaController>/custos/{id_empresa}
         [HttpPut("custos/{_id}")]
+        [Authorize]
         public IActionResult Put(string _id, [FromBody] Custo custo)
         {
             try
@@ -81,6 +85,11 @@ namespace Desafio_itera.Controllers
 
                 if (empresaCadastrada != null)
                 {
+                    if(empresaCadastrada.custos == null)
+                    {
+                        empresaCadastrada.custos = new List<Custo>();
+                    }
+
                     Custo custoCadastrado = empresaCadastrada.custos.Find(c => c.id_type == custo.id_type && c.ano == custo.ano);
 
                     if(custoCadastrado != null)
@@ -113,6 +122,7 @@ namespace Desafio_itera.Controllers
 
         // DELETE /<EmpresaController>/5
         [HttpDelete("{_id}")]
+        [Authorize]
         public IActionResult Delete(string _id)
         {
             try

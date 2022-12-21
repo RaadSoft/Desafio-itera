@@ -5,6 +5,7 @@ using System.Text.Json;
 using System;
 using System.Linq;
 using Desafio_ITERA.Json;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,6 +17,7 @@ namespace Desafio_itera.Controllers
     {
         // GET <GrupoController>/5
         [HttpGet("{_id}")]
+        [Authorize]
         public IActionResult Get(string _id)
         {
             try
@@ -35,6 +37,7 @@ namespace Desafio_itera.Controllers
         }
         // GET <GrupoController>?date='YYYY-MM-DD'
         [HttpGet()]
+        [Authorize]
         public IActionResult Get(DateTime date)
         {
             try
@@ -68,6 +71,7 @@ namespace Desafio_itera.Controllers
 
         // GET <GrupoController>/custos/5
         [HttpGet("custos/{_id}")]
+        [Authorize]
         public IActionResult GetCustos(string _id)
         {
             try
@@ -115,6 +119,7 @@ namespace Desafio_itera.Controllers
 
         // POST <GrupoController>
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody] Grupo grupo)
         {
             try
@@ -143,6 +148,7 @@ namespace Desafio_itera.Controllers
 
         // PUT <GrupoController>/5
         [HttpPut("{_id}")]
+        [Authorize]
         public IActionResult Put(string _id, string id_empresa)
         {
             try

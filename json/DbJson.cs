@@ -8,6 +8,7 @@ namespace Desafio_ITERA.Json
     {
         private static string _empresaJson = "./json/companys.json";
         private static string _grupoJson = "./json/group.json";
+        private static string _usuarioJson = "./json/users.json";
 
         public static List<Empresa> Empresas()
         {
@@ -33,6 +34,19 @@ namespace Desafio_ITERA.Json
             catch (System.Exception erro)
             {
                 throw new System.Exception("Não foi possivel Ler o Arquivo Grupos DETALHES:" + erro.Message);
+            }
+        }
+        public static List<User> Usuarios()
+        {
+            try
+            {
+                string jsonUsuarios = System.IO.File.ReadAllText(_usuarioJson);
+                List<User> usuarios = JsonSerializer.Deserialize<List<User>>(jsonUsuarios);
+                return usuarios;
+            }
+            catch (System.Exception erro)
+            {
+                throw new System.Exception("Não foi possivel Ler o Arquivo Usuarios DETALHES:" + erro.Message);
             }
         }
         public static bool UpdateEmpresas(List<Empresa> empresas)
