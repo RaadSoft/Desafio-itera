@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Desafio_itera
+namespace Desafio_ITERA
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace Desafio_itera
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio_itera", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio_ITERA", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace Desafio_itera
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio_itera v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio_ITERA v1"));
             }
 
             app.UseHttpsRedirection();

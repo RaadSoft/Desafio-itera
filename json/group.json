@@ -4,6 +4,19 @@
     "nome": "A2",
     "category": "A",
     "date_ingestion": "2022-08-25 08:52",
-    "companys": [ "1A2", "2A2" ]
+    "companys": [
+      "1A2",
+      "2A2",
+      "3A3"
+    ]
+  },
+  {
+    "id": "2",
+    "nome": "A3",
+    "category": "A",
+    "date_ingestion": "2022-12-21 14:33",
+    "companys": [
+      "3A3"
+    ]
   }
 ]

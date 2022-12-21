@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json;
 
-namespace Desafio_itera.json
+namespace Desafio_ITERA.Json
 {
     public class DbJson
     {

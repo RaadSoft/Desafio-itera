@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio-itera", "Desafio-itera.csproj", "{CEFB3DB9-A14A-463B-AFDC-2771FA6C0C57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio_ITERA", "Desafio_ITERA.csproj", "{9DC0D63F-395C-4F65-809D-0F70A582DDC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CEFB3DB9-A14A-463B-AFDC-2771FA6C0C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEFB3DB9-A14A-463B-AFDC-2771FA6C0C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEFB3DB9-A14A-463B-AFDC-2771FA6C0C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEFB3DB9-A14A-463B-AFDC-2771FA6C0C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DC0D63F-395C-4F65-809D-0F70A582DDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC0D63F-395C-4F65-809D-0F70A582DDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC0D63F-395C-4F65-809D-0F70A582DDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC0D63F-395C-4F65-809D-0F70A582DDC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {906E331B-E0BB-41A8-B22E-3966B67860DA}
+		SolutionGuid = {65119F81-77F5-44D6-97D4-205550CC37A7}
 	EndGlobalSection
 EndGlobal

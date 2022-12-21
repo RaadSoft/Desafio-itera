@@ -1,5 +1,5 @@
-﻿using Desafio_itera.json;
-using Desafio_itera.Models;
+﻿using Desafio_itera.Models;
+using Desafio_ITERA.Json;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

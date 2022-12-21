@@ -4,7 +4,7 @@ using Desafio_itera.Models;
 using System.Text.Json;
 using System;
 using System.Linq;
-using Desafio_itera.json;
+using Desafio_ITERA.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -155,6 +155,10 @@ namespace Desafio_itera.Controllers
                 Empresa empresa = empresasCadastradas.Find(e => e.id == id_empresa);
                 if (grupo != null && empresa != null)
                 {
+                    if(grupo.companys == null)
+                    {
+                        grupo.companys = new List<string>();
+                    }
                     grupo.companys.Add(empresa.id);
                     DbJson.UpdateGrupos(gruposCadastrados);
                     return Ok("Empresa associada ao Grupo com sucesso!");
