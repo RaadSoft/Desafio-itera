@@ -1,14 +1,15 @@
-﻿using Desafio_itera.Models;
-using Desatio_itera.Models;
+﻿using Desafio_itera.json;
+using Desafio_itera.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Desatio_itera.Controllers
+namespace Desafio_itera.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -16,20 +17,19 @@ namespace Desatio_itera.Controllers
     {
 
         // GET <EmpresaController>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        [HttpGet("{_id}")]
+        public IActionResult Get(string _id)
         {
             try
             {
-                string jsonEmpresas = System.IO.File.ReadAllText("./json/companys.json");
-                List<Empresa> empresas = JsonSerializer.Deserialize<List<Empresa>>(jsonEmpresas);
-                Empresa empresa = empresas.Find(e => e.id == id);
+                List<Empresa> empresas = DbJson.Empresas();
+                Empresa empresa = empresas.Find(e => e.id == _id);
                 if (empresa != null)
                     return Ok(empresa);
                 else
                     return NotFound("Empresa não encontrada");
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
@@ -41,8 +41,7 @@ namespace Desatio_itera.Controllers
         {
             try
             {
-                string jsonEmpresas = System.IO.File.ReadAllText("./json/companys.json");
-                List<Empresa> empresas = JsonSerializer.Deserialize<List<Empresa>>(jsonEmpresas);
+                List<Empresa> empresas = DbJson.Empresas();
                 Empresa empresaCadastrada = empresas.Find(e => e.id == empresa.id);
 
                 if (empresaCadastrada == null )
@@ -51,45 +50,52 @@ namespace Desatio_itera.Controllers
                     {
                         return BadRequest("Status Inválido");
                     }
+                    
+                    empresa.date_ingestion = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                    empresa.last_update = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                     empresas.Add(empresa);
 
-                    System.IO.File.WriteAllText("./json/companys.json", JsonSerializer.Serialize(empresas));
-                    return Ok("Empresa Salva com Sucesso");
+                    DbJson.UpdateEmpresas(empresas);
+                    return Ok("Empresa Cadastrada com Sucesso");
                 }
                 else
                 {
                     return BadRequest("Empresa já Cadastrada");
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
         }
 
         // PUT /<EmpresaController>/custos/{id_empresa}
-        [HttpPut("custos/{id}")]
-        public IActionResult Put(string id, [FromBody] Custo custo)
+        [HttpPut("custos/{_id}")]
+        public IActionResult Put(string _id, [FromBody] Custo custo)
         {
             try
             {
-                string jsonEmpresas = System.IO.File.ReadAllText("./json/companys.json");
-                List<Empresa> empresas = JsonSerializer.Deserialize<List<Empresa>>(jsonEmpresas);
-                Empresa empresaCadastrada = empresas.Find(e => e.id == id);
+                List<Empresa> empresas = DbJson.Empresas();
+                Empresa empresaCadastrada = empresas.Find(e => e.id == _id);
 
                 if (empresaCadastrada != null)
                 {
                     Custo custoCadastrado = empresaCadastrada.custos.Find(c => c.id_type == custo.id_type && c.ano == custo.ano);
+
                     if(custoCadastrado != null)
                     {
+                        custoCadastrado.last_update = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                         custoCadastrado.valor = custo.valor;
                     }
                     else
                     {
+                        custo.last_update = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
                         empresaCadastrada.custos.Add(custo);
                     }
-                    
-                    System.IO.File.WriteAllText("./json/companys.json", JsonSerializer.Serialize(empresas));
+
+                    empresaCadastrada.last_update = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+
+                    DbJson.UpdateEmpresas(empresas);
                     return Ok("Custo Salvo com Sucesso");
                 }
                 else
@@ -97,27 +103,25 @@ namespace Desatio_itera.Controllers
                     return BadRequest("Empresa não Cadastrada");
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
         }
 
         // DELETE /<EmpresaController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete("{_id}")]
+        public IActionResult Delete(string _id)
         {
             try
             {
-                string jsonEmpresas = System.IO.File.ReadAllText("./json/companys.json");
-                List<Empresa> empresas = JsonSerializer.Deserialize<List<Empresa>>(jsonEmpresas);
-                Empresa empresaCadastrada = empresas.Find(e => e.id == id);
+                List<Empresa> empresas = DbJson.Empresas();
+                Empresa empresaCadastrada = empresas.Find(e => e.id == _id);
 
                 if (empresaCadastrada != null)
                 {
                     empresaCadastrada.status = "INATIVO";
-
-                    System.IO.File.WriteAllText("./json/companys.json", JsonSerializer.Serialize(empresas));
+                    DbJson.UpdateEmpresas(empresas);
                     return Ok("Empresa Inativada com sucesso!");
                 }
                 else
@@ -125,7 +129,7 @@ namespace Desatio_itera.Controllers
                     return BadRequest("Empresa não Cadastrada");
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return StatusCode(500);
             }

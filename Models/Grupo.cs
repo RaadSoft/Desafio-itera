@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Desatio_itera.Models
+namespace Desafio_itera.Models
 {
     public class Grupo
     {
@@ -10,6 +10,6 @@ namespace Desatio_itera.Models
         public string nome { get; set; }
         public string category { get; set;}
         public string date_ingestion { get; set;}
-        public List<Empresa> companys { get; set; }
+        public List<string> companys { get; set; }
     }
 }
