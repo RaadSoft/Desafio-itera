@@ -27,12 +27,13 @@ namespace Desafio_itera.Controllers
                 else
                     return NotFound("Grupo não encontrado");
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("GrupoController - GET {_id}", erro.Message);
                 return StatusCode(500);
             }
         }
-        // GET <GrupoController>/5
+        // GET <GrupoController>?date='YYYY-MM-DD'
         [HttpGet()]
         public IActionResult Get(DateTime date)
         {
@@ -58,8 +59,9 @@ namespace Desafio_itera.Controllers
                 else
                     return NotFound("Não existe Grupos cadastrados antes da data informada.");
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("GrupoController - GET {?date='YYYY-MM-DD'}", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -106,7 +108,7 @@ namespace Desafio_itera.Controllers
             }
             catch (Exception erro)
             {
-
+                Log.LogArquivo.SetLog("GrupoController - GET custos/{_id}", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -132,8 +134,9 @@ namespace Desafio_itera.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("GrupoController - POST FromBody {Grupo} ", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -162,9 +165,9 @@ namespace Desafio_itera.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception erro)
             {
-
+                Log.LogArquivo.SetLog("GrupoController - PUT {_id} Query {id_empresa} ", erro.Message);
                 return StatusCode(500);
             }
         }

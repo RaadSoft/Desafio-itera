@@ -19,7 +19,7 @@ namespace Desafio_itera.json
             }
             catch (System.Exception erro)
             {
-                throw new System.Exception("ERRO Ler Arquivo Empresas:" + erro.Message);
+                throw new System.Exception("Não foi possivel Ler o Arquivo Empresas DETALHES:" + erro.Message);
             }
         }
         public static List<Grupo> Grupos()
@@ -32,7 +32,7 @@ namespace Desafio_itera.json
             }
             catch (System.Exception erro)
             {
-                throw new System.Exception("ERRO Ler Arquivo Grupos:" + erro.Message);
+                throw new System.Exception("Não foi possivel Ler o Arquivo Grupos DETALHES:" + erro.Message);
             }
         }
         public static bool UpdateEmpresas(List<Empresa> empresas)
@@ -44,7 +44,7 @@ namespace Desafio_itera.json
             }
             catch (System.Exception erro)
             {
-                throw new System.Exception("ERRO Atualizar Arquivo Empresas:" + erro.Message);
+                throw new System.Exception("Não foi possivel Atualizar o Arquivo Empresas DETALHES:" + erro.Message);
             }
         }
         public static bool UpdateGrupos(List<Grupo> grupos)
@@ -56,7 +56,7 @@ namespace Desafio_itera.json
             }
             catch (System.Exception erro)
             {
-                throw new System.Exception("ERRO Atualizar Arquivo Grupos:" + erro.Message);
+                throw new System.Exception("Não foi possivel Atualizar Arquivo Grupos DETALHES:" + erro.Message);
             }
         }
     }

@@ -1,11 +1,10 @@
 ﻿using Desafio_itera.json;
 using Desafio_itera.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
+
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,8 +28,9 @@ namespace Desafio_itera.Controllers
                 else
                     return NotFound("Empresa não encontrada");
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("EmpresaController - GET{_id}", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -63,8 +63,9 @@ namespace Desafio_itera.Controllers
                     return BadRequest("Empresa já Cadastrada");
                 }
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("EmpresaController - POST", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -103,8 +104,9 @@ namespace Desafio_itera.Controllers
                     return BadRequest("Empresa não Cadastrada");
                 }
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("EmpresaController - PUT custos/{id_empresa}", erro.Message);
                 return StatusCode(500);
             }
         }
@@ -129,8 +131,9 @@ namespace Desafio_itera.Controllers
                     return BadRequest("Empresa não Cadastrada");
                 }
             }
-            catch (Exception)
+            catch (Exception erro)
             {
+                Log.LogArquivo.SetLog("EmpresaController - DELETE {_id}", erro.Message);
                 return StatusCode(500);
             }
         }
